@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import { Helmet } from 'react-helmet';
-
-const PageWrapper = styled.div`
-    flex-grow: 1;
-`;
+import PageWrapper from '../PageWrapper';
 
 const propTypes = {
     children: PropTypes.node.isRequired
