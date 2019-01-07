@@ -1,11 +1,6 @@
 import React from 'react';
-import { graphql, Link, StaticQuery } from 'gatsby';
-import styled from 'styled-components';
-
-const List = styled.ul`
-    margin: 0;
-    padding: 0 0 0 16px;
-`;
+import { graphql, StaticQuery } from 'gatsby';
+import Menu from './Menu';
 
 const transformContentfulData = menuItems => {
     const menuItemsObj = menuItems.reduce((acc, val) => {
@@ -47,21 +42,6 @@ const transformContentfulData = menuItems => {
         return acc;
     }, []);
 };
-
-const MenuItem = React.memo(props => (
-    <li>
-        <Link to={props.to}>{props.title}</Link>
-        {props.subItems && <Menu menuItems={props.subItems} />}
-    </li>
-));
-
-const Menu = React.memo(props => (
-    <List>
-        {props.menuItems.map(menuItem => (
-            <MenuItem {...menuItem} key={menuItem.id} />
-        ))}
-    </List>
-));
 
 export default props => (
     <StaticQuery

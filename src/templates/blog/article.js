@@ -1,5 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
+
+const propTypes = {
+    data: PropTypes.shape({
+        contentfulBlogPost: PropTypes.object
+    }).isRequired
+};
 
 const Page = React.memo(props => {
     const post = props.data.contentfulBlogPost;
@@ -16,6 +23,8 @@ const Page = React.memo(props => {
         </div>
     );
 });
+
+Page.propTypes = propTypes;
 
 export default Page;
 

@@ -32,6 +32,23 @@
   "browserslist": [
     "extends @marcneander/browserslist-config"
   ],
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "setupTestFrameworkScriptFile": "<rootDir>/src/utils/setupTests.js",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      ".cache",
+      "cypress"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules/(?!(gatsby)/)"
+    ],
+    "transform": {
+      "^.+\\.(js|ts|tsx)$": "<rootDir>/src/utils/jestPreprocess.js"
+    }
+  },
   "scripts": {
     "lint": "yarn run lint:css && yarn run lint:js",
     "lint:js": "eslint src",
@@ -39,16 +56,17 @@
     "build": "gatsby build",
     "serve": "gatsby serve -H 0.0.0.0",
     "develop": "gatsby develop -H 0.0.0.0",
-    "test": "jest"
+    "jest": "jest",
+    "test": "yarn run jest && yarn run lint"
   },
   "dependencies": {
     "babel-plugin-styled-components": "^1.8.0",
     "classnames": "^2.2.6",
     "dotenv": "^6.2.0",
-    "gatsby": "2.0.64",
-    "gatsby-plugin-layout": "1.0.10",
-    "gatsby-plugin-offline": "2.0.19",
-    "gatsby-plugin-react-helmet": "3.0.4",
+    "gatsby": "2.0.85",
+    "gatsby-plugin-layout": "1.0.11",
+    "gatsby-plugin-offline": "2.0.21",
+    "gatsby-plugin-react-helmet": "3.0.5",
     "gatsby-plugin-styled-components": "^3.0.4",
     "gatsby-source-contentful": "^2.0.22",
     "gatsby-transformer-remark": "^2.1.17",
@@ -68,12 +86,14 @@
     "@marcneander/stylelint-config-styled-components": "^1.0.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.6.0",
+    "babel-preset-gatsby": "^0.1.6",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "enzyme-to-json": "^3.3.4",
-    "eslint": "5.10.0",
+    "eslint": "5.12.0",
     "husky": "^1.1.4",
     "jest": "^23.6.0",
+    "jest-styled-components": "^6.3.1",
     "jsdom": "^13.0.0",
     "lint-staged": "^8.0.4",
     "prettier": "^1.15.2",
