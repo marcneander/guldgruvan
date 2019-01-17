@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
 
 const propTypes = {
@@ -12,10 +13,14 @@ const propTypes = {
 
 const Page = React.memo(props => {
     const blogPosts = props.data.allContentfulBlogPost.edges;
+    const pageTitle = 'Blogg';
 
     return (
         <div>
-            <h1>Blogg</h1>
+            <Helmet>
+                <title>{pageTitle}</title>
+            </Helmet>
+            <h1>{pageTitle}</h1>
             {blogPosts.map(post => (
                 <div>
                     <Link to={`/blogg/${post.node.slug}`}>{post.node.title}</Link>

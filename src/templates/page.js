@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 
 const propTypes = {
@@ -13,6 +14,9 @@ const Page = React.memo(props => {
 
     return (
         <div>
+            <Helmet>
+                <title>{page.title}</title>
+            </Helmet>
             <h1>{page.title}</h1>
             <div
                 dangerouslySetInnerHTML={{

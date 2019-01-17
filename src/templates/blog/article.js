@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import Helmet from 'react-helmet';
+import { graphql, Link } from 'gatsby';
 
 const propTypes = {
     data: PropTypes.shape({
@@ -13,6 +14,10 @@ const Page = React.memo(props => {
 
     return (
         <div>
+            <Helmet>
+                <title>{post.title}</title>
+            </Helmet>
+            <Link to="blogg">Tillbaka</Link>
             <h1>{post.title}</h1>
             <img src={post.heroImage.fluid.src} alt={post.heroImage.title} />
             <div
