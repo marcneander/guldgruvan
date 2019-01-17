@@ -5,8 +5,8 @@
 </p>
 <br />
 <p align="center">
-    <a href="https://greenkeeper.io/">
-        <img src="https://badges.greenkeeper.io/marcneander/guldgruvan.svg" alt="Greenkeeper badge"></a>
+     <a href="https://renovatebot.com">
+        <img src="https://badges.renovateapi.com/github/marcneander/guldgruvan" alt="Renovate badge"></a>
     <a href="https://travis-ci.com/marcneander/guldgruvan">
         <img src="https://api.travis-ci.com/marcneander/guldgruvan.svg?branch=master" alt="Build Status"></a>
 </p>
