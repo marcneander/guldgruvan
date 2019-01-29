@@ -3,8 +3,8 @@ const path = require('path');
 exports.createPages = ({ graphql, actions }) => {
     const { createPage } = actions;
     const pageTemplate = path.resolve(`./src/templates/page.js`);
-    const blogIndexTemplate = path.resolve(`./src/templates/blog/index.js`);
-    const blogArticleTemplate = path.resolve(`./src/templates/blog/article.js`);
+    const postListTemplate = path.resolve(`./src/templates/blog/list.js`);
+    const postDetailTemplate = path.resolve(`./src/templates/blog/detail.js`);
 
     const pages = new Promise(async (resolve, reject) => {
         const result = await graphql(
@@ -41,11 +41,11 @@ exports.createPages = ({ graphql, actions }) => {
         resolve();
     });
 
-    const blog = new Promise(async (resolve, reject) => {
+    const posts = new Promise(async (resolve, reject) => {
         const result = await graphql(
             `
                 {
-                    allContentfulBlogPost {
+                    allContentfulPost {
                         edges {
                             node {
                                 slug
@@ -67,28 +67,28 @@ exports.createPages = ({ graphql, actions }) => {
             reject(result.errors);
         }
 
-        const blogPosts = result.data.allContentfulBlogPost.edges;
+        const postsResulsts = result.data.allContentfulPost.edges;
         const { itemsPerPage } = result.data.site.siteMetadata;
 
-        /* Blog indexpage */
+        /* post listpage */
         createPage({
             path: '/blogg',
-            component: blogIndexTemplate,
+            component: postListTemplate,
             context: {
                 skip: 0,
                 limit: itemsPerPage
             }
         });
 
-        if (blogPosts.length > itemsPerPage) {
+        if (postsResulsts.length > itemsPerPage) {
             for (
                 let i = 1;
-                i < Math.floor(blogPosts.length / itemsPerPage) + (blogPosts.length % itemsPerPage);
+                i < Math.floor(postsResulsts.length / itemsPerPage) + (postsResulsts.length % itemsPerPage);
                 i += 1
             ) {
                 createPage({
                     path: `/blogg/sida/${i + 1}`,
-                    component: blogIndexTemplate,
+                    component: postListTemplate,
                     context: {
                         skip: i * itemsPerPage,
                         limit: itemsPerPage
@@ -97,11 +97,11 @@ exports.createPages = ({ graphql, actions }) => {
             }
         }
 
-        /* Blog article page */
-        blogPosts.forEach(page => {
+        /* post detail page */
+        postsResulsts.forEach(page => {
             createPage({
                 path: `/blogg/${page.node.slug}`,
-                component: blogArticleTemplate,
+                component: postDetailTemplate,
                 context: {
                     id: page.node.id
                 }
@@ -111,5 +111,5 @@ exports.createPages = ({ graphql, actions }) => {
         resolve();
     });
 
-    return Promise.all([pages, blog]);
+    return Promise.all([pages, posts]);
 };

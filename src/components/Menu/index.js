@@ -18,10 +18,10 @@ const transformContentfulData = menuItems => {
             id
         };
 
-        if (item.menu_item !== null) {
+        if (item.menuitem !== null) {
             data.subItems = [];
 
-            item.menu_item.forEach(i => {
+            item.menuitem.forEach(i => {
                 data.subItems.push(getMenuItemDataById(i.id));
             });
         }
@@ -48,7 +48,7 @@ export default props => (
         query={graphql`
             query {
                 allContentfulMenuItem(
-                    sort: { fields: sortingWeight }
+                    sort: { fields: sort }
                     filter: { menu: { elemMatch: { position: { eq: "header" } } } }
                 ) {
                     edges {
@@ -58,7 +58,7 @@ export default props => (
                                 url
                             }
                             title
-                            menu_item {
+                            menuitem {
                                 id
                             }
                             contentfulparent {

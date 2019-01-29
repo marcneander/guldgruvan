@@ -5,14 +5,14 @@ import { Link, graphql } from 'gatsby';
 
 const propTypes = {
     data: PropTypes.shape({
-        allContentfulBlogPost: PropTypes.shape({
+        allContentfulPost: PropTypes.shape({
             edges: PropTypes.array
         })
     }).isRequired
 };
 
 const Page = React.memo(props => {
-    const blogPosts = props.data.allContentfulBlogPost.edges;
+    const posts = props.data.allContentfulPost.edges;
     const pageTitle = 'Blogg';
 
     return (
@@ -21,14 +21,10 @@ const Page = React.memo(props => {
                 <title>{pageTitle}</title>
             </Helmet>
             <h1>{pageTitle}</h1>
-            {blogPosts.map(post => (
+            {posts.map(post => (
                 <div>
                     <Link to={`/blogg/${post.node.slug}`}>{post.node.title}</Link>
-                    <div
-                        dangerouslySetInnerHTML={{
-                            __html: post.node.description.childMarkdownRemark.html
-                        }}
-                    />
+                    <div>{post.node.description.description}</div>
                 </div>
             ))}
         </div>
@@ -41,7 +37,7 @@ export default Page;
 
 export const pageQuery = graphql`
     query($skip: Int!, $limit: Int!) {
-        allContentfulBlogPost(skip: $skip, limit: $limit, sort: { fields: publishDate, order: DESC }) {
+        allContentfulPost(skip: $skip, limit: $limit) {
             edges {
                 node {
                     title
@@ -53,9 +49,7 @@ export const pageQuery = graphql`
                         title
                     }
                     description {
-                        childMarkdownRemark {
-                            html
-                        }
+                        description
                     }
                 }
             }

@@ -51,12 +51,12 @@
   },
   "renovate": {
     "extends": [
-        "config:base"
+      "config:base"
     ],
     "rebaseStalePrs": true,
     "automerge": true,
     "major": {
-        "automerge": false
+      "automerge": false
     }
   },
   "scripts": {
@@ -67,9 +67,12 @@
     "serve": "gatsby serve -H 0.0.0.0",
     "develop": "gatsby develop -H 0.0.0.0",
     "jest": "jest",
-    "test": "yarn run jest && yarn run lint"
+    "test": "yarn run jest && yarn run lint",
+    "gs": "gatsby info --clipboard"
   },
   "dependencies": {
+    "@contentful/gatsby-transformer-contentful-richtext": "^13.0.0",
+    "@contentful/rich-text-types": "^13.0.0",
     "babel-plugin-styled-components": "1.10.0",
     "classnames": "2.2.6",
     "dotenv": "6.2.0",

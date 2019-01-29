@@ -5,12 +5,12 @@ import { graphql, Link } from 'gatsby';
 
 const propTypes = {
     data: PropTypes.shape({
-        contentfulBlogPost: PropTypes.object
+        contentfulPost: PropTypes.object
     }).isRequired
 };
 
 const Page = React.memo(props => {
-    const post = props.data.contentfulBlogPost;
+    const post = props.data.contentfulPost;
 
     return (
         <div>
@@ -22,7 +22,7 @@ const Page = React.memo(props => {
             <img src={post.heroImage.fluid.src} alt={post.heroImage.title} />
             <div
                 dangerouslySetInnerHTML={{
-                    __html: post.body.childMarkdownRemark.html
+                    __html: post.body.childContentfulRichText.html
                 }}
             />
         </div>
@@ -35,11 +35,11 @@ export default Page;
 
 export const pageQuery = graphql`
     query($id: String!) {
-        contentfulBlogPost(id: { eq: $id }) {
+        contentfulPost(id: { eq: $id }) {
             title
             slug
             body {
-                childMarkdownRemark {
+                childContentfulRichText {
                     html
                 }
             }

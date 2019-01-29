@@ -1,4 +1,5 @@
 require('dotenv').config();
+const contentfulRenderOptions = require('./src/utils/contentfulRenderOptions');
 
 module.exports = {
     siteMetadata: {
@@ -21,9 +22,13 @@ module.exports = {
         {
             resolve: 'gatsby-source-contentful',
             options: {
-                spaceId: '5v2uz5sd19wl',
+                spaceId: '3p3df9x67gfp',
                 accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
             }
+        },
+        {
+            resolve: '@contentful/gatsby-transformer-contentful-richtext',
+            options: contentfulRenderOptions
         },
         'gatsby-transformer-remark',
         'gatsby-plugin-offline'
