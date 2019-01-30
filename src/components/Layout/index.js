@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import PageWrapper from '../PageWrapper';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const propTypes = {
     children: PropTypes.node.isRequired

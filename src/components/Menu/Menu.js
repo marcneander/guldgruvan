@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import MenuItem from './MenuItem';
 
 const propTypes = {
@@ -13,17 +12,12 @@ const propTypes = {
     ).isRequired
 };
 
-const List = styled.ul`
-    margin: 0;
-    padding: 0 0 0 16px;
-`;
-
 const Menu = React.memo(props => (
-    <List>
+    <ul className="list-unstyled ml-3">
         {props.menuItems.map(menuItem => (
             <MenuItem {...menuItem} key={menuItem.id} />
         ))}
-    </List>
+    </ul>
 ));
 
 Menu.propTypes = propTypes;
