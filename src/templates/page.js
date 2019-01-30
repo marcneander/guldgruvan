@@ -20,7 +20,7 @@ const Page = React.memo(props => {
             <h1>{page.title}</h1>
             <div
                 dangerouslySetInnerHTML={{
-                    __html: page.body.childMarkdownRemark.html
+                    __html: page.body.childContentfulRichText.html
                 }}
             />
         </div>
@@ -36,7 +36,7 @@ export const pageQuery = graphql`
         contentfulPage(id: { eq: $id }) {
             title
             body {
-                childMarkdownRemark {
+                childContentfulRichText {
                     html
                 }
             }
