@@ -81,7 +81,7 @@
     "gatsby-plugin-layout": "1.0.12",
     "gatsby-plugin-offline": "2.0.22",
     "gatsby-plugin-react-helmet": "3.0.6",
-    "gatsby-plugin-styled-components": "3.0.4",
+    "gatsby-plugin-styled-components": "3.0.5",
     "gatsby-source-contentful": "2.0.29",
     "gatsby-transformer-remark": "2.2.3",
     "polished": "2.3.3",
