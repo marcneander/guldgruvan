@@ -37,6 +37,8 @@ const renderEntry = (node, next) => {
                     </div>
                 </div>
             `;
+        case 'map':
+            return '';
         default:
             return next(node.content);
     }
@@ -68,7 +70,8 @@ module.exports = {
             [INLINES.ENTRY_HYPERLINK]: (node, next) => renderEntryHyperlink(node, next),
             [INLINES.HYPERLINK]: (node, next) => `<a href="${node.data.uri}">${next(node.content)}</a>`,
             [BLOCKS.EMBEDDED_ASSET]: (node, next) => renderAsset(node, next),
-            [BLOCKS.EMBEDDED_ENTRY]: (node, next) => renderEntry(node, next)
+            [BLOCKS.EMBEDDED_ENTRY]: (node, next) => renderEntry(node, next),
+            [BLOCKS.PARAGRAPH]: (node, next) => `<p>${next(node.content).replace(/\n/g, '<br>')}</p>`
         },
         renderMark: {
             [MARKS.BOLD]: text => `<strong>${text}</strong>`
