@@ -54,6 +54,7 @@
       "config:base"
     ],
     "rebaseStalePrs": true,
+    "automergeType": "branch",
     "automerge": true,
     "major": {
       "automerge": false
