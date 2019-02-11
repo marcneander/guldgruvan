@@ -752,10 +752,10 @@
     follow-redirects "^1.2.5"
     is-buffer "^1.1.5"
 
-"@contentful/gatsby-transformer-contentful-richtext@13.0.0":
-  version "13.0.0"
-  resolved "https://registry.yarnpkg.com/@contentful/gatsby-transformer-contentful-richtext/-/gatsby-transformer-contentful-richtext-13.0.0.tgz#62b2028b4ac7753dd45d774d8b2b5a502ef3f3ec"
-  integrity sha512-KYwUzbGZWbrU0viKpfTAYL/UhPp+yj/oNlMt4HsJ4/FOh+09aCHozDkUmmmmlzHYh+Nzyrl7DpGuCHaiuFdmwA==
+"@contentful/gatsby-transformer-contentful-richtext@13.0.1":
+  version "13.0.1"
+  resolved "https://registry.yarnpkg.com/@contentful/gatsby-transformer-contentful-richtext/-/gatsby-transformer-contentful-richtext-13.0.1.tgz#cc0d9fb38086258328c9dfcace0be7d82ad0d8ea"
+  integrity sha512-PoQIr2SSIUeFEz+/qtwNrmw8wvRMSLHMGQbqRXl3cPBvBOYyEtA37wloZR3ZkVMzQjh1n8Gp9LAuyD0TvURJ7w==
   dependencies:
     "@babel/runtime" "^7.2.0"
     "@contentful/rich-text-html-renderer" "^13.0.0"
