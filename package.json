@@ -87,7 +87,7 @@
     "gatsby-plugin-styled-components": "3.0.5",
     "gatsby-source-contentful": "2.0.29",
     "gatsby-transformer-sharp": "2.1.13",
-    "polished": "2.3.3",
+    "polished": "3.0.0",
     "prop-types": "15.7.2",
     "react": "16.8.2",
     "react-copy-to-clipboard": "5.0.1",
