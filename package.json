@@ -72,7 +72,7 @@
     "gs": "gatsby info --clipboard"
   },
   "dependencies": {
-    "@contentful/gatsby-transformer-contentful-richtext": "13.0.1",
+    "@contentful/gatsby-transformer-contentful-richtext": "13.1.0",
     "@contentful/rich-text-types": "13.0.0",
     "babel-plugin-styled-components": "1.10.0",
     "bootstrap": "4.3.1",
