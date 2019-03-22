@@ -89,9 +89,9 @@
     "gatsby-transformer-sharp": "2.1.17",
     "polished": "3.0.4",
     "prop-types": "15.7.2",
-    "react": "16.8.4",
+    "react": "16.8.5",
     "react-copy-to-clipboard": "5.0.1",
-    "react-dom": "16.8.4",
+    "react-dom": "16.8.5",
     "react-helmet": "5.2.0",
     "react-transition-group": "2.7.0",
     "styled-components": "4.1.3"
