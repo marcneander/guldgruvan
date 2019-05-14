@@ -108,7 +108,7 @@
     "enzyme-adapter-react-16": "1.13.0",
     "enzyme-to-json": "3.3.5",
     "eslint": "5.16.0",
-    "husky": "2.2.0",
+    "husky": "2.3.0",
     "jest": "24.8.0",
     "jest-styled-components": "6.3.1",
     "jsdom": "15.1.0",
