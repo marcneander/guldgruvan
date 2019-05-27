@@ -1,8 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Menu from '../Menu';
+import { Container } from 'react-bootstrap';
 
-const propTypes = {
+import Footer from '../Footer';
+import Background from '../Background';
+import { Desktop as DesktopHeader, Mobile as MobileHeader } from '../Header';
+
+const Main = ({ children }) => {
+    return (
+        <Container className="main-container">
+            <div className="main">{children}</div>
+        </Container>
+    );
+};
+
+Main.propTypes = {
     children: PropTypes.node.isRequired
 };
 
@@ -10,17 +22,18 @@ const PageWrapper = props => {
     const { children } = props;
 
     return (
-        <div className="container">
-            <div className="row">
-                <div className="col-12 col-md-4 col-xl-3 py-3">
-                    <Menu />
-                </div>
-                <div className="col-12 col-md-8 col-xl-9 py-3 pl-md-5">{children}</div>
-            </div>
-        </div>
+        <>
+            <Background />
+            <DesktopHeader />
+            {/* <MobileHeader /> */}
+            <Main>{children}</Main>
+            <Footer />
+        </>
     );
 };
 
-PageWrapper.propTypes = propTypes;
+PageWrapper.propTypes = {
+    children: PropTypes.node.isRequired
+};
 
 export default PageWrapper;

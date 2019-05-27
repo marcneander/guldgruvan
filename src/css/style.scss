@@ -1,0 +1,47 @@
+/* Variables */
+$font-family-sans-serif: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 900px,
+);
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 932px,
+);
+
+$primary: #D85D4D;
+$secondary: #467346;
+$info: #638A52;
+
+@import "bootstrap/scss/bootstrap";
+
+h1 {
+    color: $primary;
+}
+
+.main {
+    padding: 30px 15px;
+}
+
+.main-container {
+    background-color: #FFF;
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+html, body, #___gatsby, #___gatsby > div {
+    height: 100%;
+}
+
+#___gatsby > div {
+    display: flex;
+    flex-direction: column;
+}
+
+@import "components/header";
+@import "components/footer";
+@import "components/sidebar";
+@import "components/background";

@@ -1,18 +1,36 @@
+const path = require('path');
 require('dotenv').config();
-const contentfulRenderOptions = require('./src/utils/contentfulRenderOptions');
 
 module.exports = {
     siteMetadata: {
         itemsPerPage: 50
     },
     plugins: [
+        {
+            resolve: 'gatsby-source-filesystem',
+            options: {
+                name: 'images',
+                path: path.join(__dirname, 'src', 'images')
+            }
+        },
         'gatsby-transformer-sharp',
         'gatsby-plugin-sharp',
         'gatsby-plugin-react-helmet',
         {
-            resolve: 'gatsby-plugin-styled-components',
+            resolve: `gatsby-plugin-prefetch-google-fonts`,
             options: {
-                displayName: false
+                fonts: [
+                    {
+                        family: `IBM Plex Sans`,
+                        variants: [`500`, `700`]
+                    }
+                ]
+            }
+        },
+        {
+            resolve: 'gatsby-plugin-sass',
+            options: {
+                includePaths: [path.resolve(__dirname, 'node_modules')]
             }
         },
         {
@@ -27,10 +45,6 @@ module.exports = {
                 spaceId: '3p3df9x67gfp',
                 accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
             }
-        },
-        {
-            resolve: '@contentful/gatsby-transformer-contentful-richtext',
-            options: contentfulRenderOptions
         },
         'gatsby-plugin-offline'
     ]

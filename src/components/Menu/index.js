@@ -1,6 +1,6 @@
 import React from 'react';
 import { graphql, StaticQuery } from 'gatsby';
-import Menu from './Menu';
+import Desktop from './Desktop';
 
 const transformContentfulData = menuItems => {
     const menuItemsObj = menuItems.reduce((acc, val) => {
@@ -43,7 +43,7 @@ const transformContentfulData = menuItems => {
     }, []);
 };
 
-export default props => (
+export const DesktopMenu = props => (
     <StaticQuery
         query={graphql`
             query {
@@ -69,6 +69,8 @@ export default props => (
                 }
             }
         `}
-        render={data => <Menu menuItems={transformContentfulData(data.allContentfulMenuItem.edges)} {...props} />}
+        render={data => <Desktop menuItems={transformContentfulData(data.allContentfulMenuItem.edges)} {...props} />}
     />
 );
+
+export const MobileMenu = () => {};

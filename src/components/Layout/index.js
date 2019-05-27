@@ -2,15 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import PageWrapper from '../PageWrapper';
-import 'bootstrap/dist/css/bootstrap.min.css';
+
+import '../../css/style.scss';
 
 const propTypes = {
     children: PropTypes.node.isRequired
 };
 
-const Layout = React.memo(props => {
-    const { children } = props;
-
+const Layout = ({ children }) => {
     const description =
         'Guldgruvan är en förskola med plats för 24 barn mellan 1-5 år. Vi föräldrar har full insyn och kan vara med och påverka våra barns vardag, vilket i kombination med personalens pedagogiska kunskap blir en trygg förskola för våra barn.';
 
@@ -20,7 +19,6 @@ const Layout = React.memo(props => {
                 <html lang="en" />
                 <meta name="description" content={description} />
 
-                {/** @todo Change this when we have a logotype */}
                 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
                 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
                 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -29,7 +27,6 @@ const Layout = React.memo(props => {
                 <meta name="msapplication-TileColor" content="#fae62d" />
                 <meta name="theme-color" content="#fae62d" />
 
-                {/** @todo Change this when we have a logotype */}
                 <meta property="og:image:width" content="1333" />
                 <meta property="og:image:height" content="2000" />
                 <meta property="og:description" content={description} />
@@ -40,7 +37,7 @@ const Layout = React.memo(props => {
             <PageWrapper>{children}</PageWrapper>
         </React.Fragment>
     );
-});
+};
 
 Layout.propTypes = propTypes;
 
