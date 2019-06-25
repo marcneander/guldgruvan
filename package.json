@@ -77,7 +77,7 @@
   "devDependencies": {
     "@marcneander/browserslist-config": "1.0.1",
     "@marcneander/eslint-config-react": "1.1.0",
-    "eslint": "5.16.0",
+    "eslint": "6.0.1",
     "husky": "2.3.0",
     "lint-staged": "8.1.7",
     "prettier": "1.17.1",
