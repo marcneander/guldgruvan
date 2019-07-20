@@ -44,6 +44,7 @@
     "lint": "yarn run lint:css && yarn run lint:js",
     "lint:js": "eslint src",
     "lint:css": "stylelint './src/**/*.js'",
+    "test": "echo 'no tests atm'",
     "build": "gatsby build",
     "serve": "gatsby serve -H 0.0.0.0",
     "develop": "gatsby develop -H 0.0.0.0"
