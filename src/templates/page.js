@@ -20,7 +20,7 @@ const Page = React.memo(props => {
 
     return (
         <Row>
-            <Col md={8}>
+            <Col md={8} className="mb-4">
                 <Helmet>
                     <title>{page.title}</title>
                 </Helmet>

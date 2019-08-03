@@ -7,7 +7,7 @@ const Logotype = () => {
         query {
             file(relativePath: { eq: "logo.png" }) {
                 childImageSharp {
-                    fixed(width: 250, quality: 100) {
+                    fixed(width: 160, quality: 100) {
                         ...GatsbyImageSharpFixed
                     }
                 }
@@ -15,7 +15,7 @@ const Logotype = () => {
         }
     `);
 
-    return <Img fixed={data.file.childImageSharp.fixed} fadeIn={false} />;
+    return <Img fixed={data.file.childImageSharp.fixed} width="100" fadeIn={false} />;
 };
 
 export default Logotype;

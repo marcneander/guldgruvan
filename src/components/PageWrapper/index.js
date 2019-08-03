@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { Container } from 'react-bootstrap';
 
 import Footer from '../Footer';
-import Background from '../Background';
 import { Desktop as DesktopHeader, Mobile as MobileHeader } from '../Header';
 
 const Main = ({ children }) => {
@@ -23,9 +22,8 @@ const PageWrapper = props => {
 
     return (
         <>
-            <Background />
             <DesktopHeader />
-            {/* <MobileHeader /> */}
+            <MobileHeader />
             <Main>{children}</Main>
             <Footer />
         </>

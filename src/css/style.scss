@@ -1,5 +1,5 @@
 /* Variables */
-$font-family-sans-serif: BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+$font-family-sans-serif: 'Rubik',Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
 $container-max-widths: (
     sm: 540px,
     md: 720px,
@@ -12,21 +12,27 @@ $grid-breakpoints: (
     lg: 932px,
 );
 
-$primary: #D85D4D;
-$secondary: #467346;
-$info: #638A52;
+$primary: #467346;
 $body-color: #373737;
+$link-color: #638A52;
+$link-decoration: underline;
+$link-hover-decoration: none;
 
 @import "bootstrap/scss/bootstrap";
 
 .main {
-    padding: 30px 15px;
+    padding: 2rem 1rem;
 }
 
 .main-container {
     background-color: #FFF;
     margin-bottom: 30px;
     flex-grow: 1;
+    border-radius: $border-radius;
+}
+
+body {
+    background: #638A52;
 }
 
 html, body, #___gatsby, #___gatsby > div {
@@ -39,7 +45,20 @@ html, body, #___gatsby, #___gatsby > div {
     position: relative;
 }
 
+@keyframes offcanvas {
+    0% {
+        opacity: 0;
+        transform: translateX(200px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 @import "components/header";
 @import "components/footer";
 @import "components/sidebar";
-@import "components/background";
+@import "components/menu";
+@import "common";

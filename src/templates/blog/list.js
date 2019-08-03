@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Row, Col } from 'react-bootstrap';
 import Helmet from 'react-helmet';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
+import Sidebar from '../../components/Sidebar';
+import Post from '../../components/Post';
 
 const propTypes = {
     data: PropTypes.shape({
@@ -16,18 +19,24 @@ const Page = React.memo(props => {
     const pageTitle = 'Blogg';
 
     return (
-        <div>
+        <>
             <Helmet>
                 <title>{pageTitle}</title>
             </Helmet>
-            <h1>{pageTitle}</h1>
-            {posts.map(post => (
-                <div>
-                    <Link to={`/blogg/${post.node.slug}`}>{post.node.title}</Link>
-                    <div>{post.node.description.description}</div>
-                </div>
-            ))}
-        </div>
+            <Row>
+                <Col md={8} className="mb-4">
+                    {posts.map(post => (
+                        <Post key={post.node.id} link post={post.node} />
+                    ))}
+                </Col>
+                <Sidebar
+                    data={{
+                        menuData: {},
+                        blogPosts: posts
+                    }}
+                />
+            </Row>
+        </>
     );
 });
 
@@ -40,6 +49,7 @@ export const pageQuery = graphql`
         allContentfulPost(skip: $skip, limit: $limit) {
             edges {
                 node {
+                    id
                     title
                     slug
                     heroImage {
@@ -48,8 +58,12 @@ export const pageQuery = graphql`
                         }
                         title
                     }
-                    description {
-                        description
+                    body {
+                        json
+                    }
+                    createdAt(formatString: "D MMMM YYYY", locale: "sv-SE")
+                    author {
+                        name
                     }
                 }
             }

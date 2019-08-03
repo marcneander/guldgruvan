@@ -5,7 +5,7 @@ import { DesktopMenu } from '../Menu';
 
 const DesktopHeader = () => {
     return (
-        <div className="desktop-header">
+        <div className="desktop-header d-none d-sm-block">
             <Container>
                 <div className="d-flex flex-column align-items-center pt-3 pb-2">
                     <LogoType />
