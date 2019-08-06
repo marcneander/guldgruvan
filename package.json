@@ -50,7 +50,7 @@
     "develop": "gatsby develop -H 0.0.0.0"
   },
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "13.2.0",
+    "@contentful/rich-text-react-renderer": "13.4.0",
     "@contentful/rich-text-types": "13.4.0",
     "@reach/router": "1.2.1",
     "bootstrap": "4.3.1",
