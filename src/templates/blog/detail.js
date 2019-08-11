@@ -17,6 +17,7 @@ const Page = React.memo(props => {
         <>
             <Helmet>
                 <title>{post.title}</title>
+                <meta name="description" content={post.description.description} />
             </Helmet>
             <Post post={post} />
         </>
@@ -32,16 +33,17 @@ export const pageQuery = graphql`
         contentfulPost(id: { eq: $id }) {
             title
             slug
-            heroImage {
-                fluid {
-                    src
-                }
+            images {
+                contentful_id
                 title
+            }
+            description {
+                description
             }
             body {
                 json
             }
-            createdAt(formatString: "D MMMM YYYY", locale: "sv-SE")
+            createdAt(formatString: "D MMMM, YYYY", locale: "sv-SE")
             author {
                 name
             }

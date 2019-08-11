@@ -81,11 +81,7 @@ exports.createPages = ({ graphql, actions }) => {
         });
 
         if (postsResulsts.length > itemsPerPage) {
-            for (
-                let i = 1;
-                i < Math.floor(postsResulsts.length / itemsPerPage) + (postsResulsts.length % itemsPerPage);
-                i += 1
-            ) {
+            for (let i = 0; i < Math.ceil(postsResulsts.length / itemsPerPage); i += 1) {
                 createPage({
                     path: `/blogg/sida/${i + 1}`,
                     component: postListTemplate,

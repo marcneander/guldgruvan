@@ -20,7 +20,7 @@ const Page = React.memo(props => {
 
     return (
         <Row>
-            <Col md={8} className="mb-4">
+            <Col md={8} className="mb-4 mb-md-0">
                 <Helmet>
                     <title>{page.title}</title>
                 </Helmet>
@@ -29,7 +29,7 @@ const Page = React.memo(props => {
             </Col>
             <Sidebar
                 data={{
-                    menuData: page.menuitem[0] || [],
+                    menuData: page.menuitem ? page.menuitem[0] : [],
                     blogPosts: posts
                 }}
             />

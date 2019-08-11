@@ -3,7 +3,7 @@ require('dotenv').config();
 
 module.exports = {
     siteMetadata: {
-        itemsPerPage: 20
+        itemsPerPage: 3
     },
     plugins: [
         {

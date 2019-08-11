@@ -15,7 +15,7 @@ const Logotype = () => {
         }
     `);
 
-    return <Img fixed={data.file.childImageSharp.fixed} width="100" fadeIn={false} />;
+    return <Img fixed={data.file.childImageSharp.fixed} fadeIn={false} />;
 };
 
 export default Logotype;

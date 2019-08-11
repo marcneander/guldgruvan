@@ -5,12 +5,20 @@ import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import Sidebar from '../../components/Sidebar';
 import Post from '../../components/Post';
+import Pagination from '../../components/Pagination';
 
 const propTypes = {
     data: PropTypes.shape({
         allContentfulPost: PropTypes.shape({
             edges: PropTypes.array
+        }),
+        totalCount: PropTypes.shape({
+            totalCount: PropTypes.number
         })
+    }).isRequired,
+    pageContext: PropTypes.shape({
+        limit: PropTypes.number,
+        skip: PropTypes.number
     }).isRequired
 };
 
@@ -24,10 +32,16 @@ const Page = React.memo(props => {
                 <title>{pageTitle}</title>
             </Helmet>
             <Row>
-                <Col md={8} className="mb-4">
+                <Col md={8} className="mb-4 mb-md-0">
                     {posts.map(post => (
-                        <Post key={post.node.id} link post={post.node} />
+                        <Post key={post.node.id} preview post={post.node} />
                     ))}
+                    <Pagination
+                        total={props.data.totalCount.totalCount}
+                        limit={props.pageContext.limit}
+                        skip={props.pageContext.skip}
+                        baseUrl="/blogg/sida/"
+                    />
                 </Col>
                 <Sidebar
                     data={{
@@ -52,21 +66,26 @@ export const pageQuery = graphql`
                     id
                     title
                     slug
-                    heroImage {
-                        fluid {
-                            src
-                        }
+                    description {
+                        description
+                    }
+                    images {
+                        contentful_id
                         title
                     }
                     body {
                         json
                     }
-                    createdAt(formatString: "D MMMM YYYY", locale: "sv-SE")
+                    createdAt(formatString: "D MMMM, YYYY", locale: "sv-SE")
                     author {
                         name
                     }
                 }
             }
+        }
+
+        totalCount: allContentfulPost {
+            totalCount
         }
     }
 `;
