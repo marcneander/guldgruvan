@@ -7,9 +7,11 @@ import { Desktop as DesktopHeader, Mobile as MobileHeader } from '../Header';
 
 const Main = ({ children }) => {
     return (
-        <Container className="main-container">
-            <div className="main">{children}</div>
-        </Container>
+        <div className="main-container">
+            <Container>
+                <div className="main">{children}</div>
+            </Container>
+        </div>
     );
 };
 

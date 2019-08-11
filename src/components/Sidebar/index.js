@@ -26,28 +26,40 @@ const Sidebar = ({ data }) => {
                             {menuItems.map(menuItem => (
                                 <li key={menuItem.id}>
                                     <Link to={menuItem.url.url} activeClassName="active" className="sidebar-menu-item">
-                                        {menuItem.title}
+                                        - {menuItem.title}
                                     </Link>
                                 </li>
                             ))}
                         </ul>
                     </div>
                 )}
-                <div className="sidebar-box latest-posts p-3">
-                    <h5>Senaste blogginläggen</h5>
-                    <ul className="list-unstyled mb-0">
-                        {data.blogPosts.map(post => (
-                            <li key={post.node.id}>
-                                <Link
-                                    to={`/blogg/${post.node.slug}`}
-                                    activeClassName="active"
-                                    className="sidebar-menu-item"
-                                >
-                                    {post.node.title}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
+                {data.blogPosts.length > 0 && (
+                    <div className="sidebar-box latest-posts p-3">
+                        <h5>Senaste blogginläggen</h5>
+                        <ul className="list-unstyled mb-0">
+                            {data.blogPosts.map(post => (
+                                <li key={post.node.id}>
+                                    <Link
+                                        to={`/blogg/${post.node.slug}`}
+                                        activeClassName="active"
+                                        className="sidebar-menu-item"
+                                    >
+                                        - {post.node.title}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+                <div className="sidebar-box submenu p-3">
+                    <h5>Välkommen att ansöka</h5>
+                    <p>
+                        Ska din guldklimp börja på förskola i höst eller kanske nästa år? Eller känns det inte riktigt
+                        bra med den förskola ni har idag?
+                    </p>
+                    <Link to="/kontakt" className="btn btn-block btn-light">
+                        Kontakta oss
+                    </Link>
                 </div>
             </div>
         </Col>

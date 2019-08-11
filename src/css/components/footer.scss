@@ -1,3 +1,13 @@
 .footer {
+    font-size: $font-size-sm;
+    background-color: #384B4F;
+    padding: 3rem 0 1rem;
+}
 
+.footer-image-link {
+    opacity: .8;
+
+    &:hover, &:active {
+        opacity: 1;
+    }
 }

@@ -46,7 +46,7 @@ const Page = React.memo(props => {
                 <Sidebar
                     data={{
                         menuData: {},
-                        blogPosts: posts
+                        blogPosts: []
                     }}
                 />
             </Row>

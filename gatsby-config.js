@@ -3,7 +3,7 @@ require('dotenv').config();
 
 module.exports = {
     siteMetadata: {
-        itemsPerPage: 3
+        itemsPerPage: 20
     },
     plugins: [
         {
@@ -22,7 +22,7 @@ module.exports = {
                 fonts: [
                     {
                         family: 'Rubik',
-                        variants: ['400', '700']
+                        variants: ['400', '500', '700']
                     }
                 ]
             }

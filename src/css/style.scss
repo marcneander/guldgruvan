@@ -49,11 +49,10 @@ $h6-font-size: $font-size-base;
     background-color: #FFF;
     margin-bottom: 30px;
     flex-grow: 1;
-    border-radius: $border-radius;
-}
-
-body {
-    background: #638A52;
+    
+    @include media-breakpoint-up(md) {
+        padding: 20px 0;
+    }
 }
 
 html, body, #___gatsby, #___gatsby > div {
