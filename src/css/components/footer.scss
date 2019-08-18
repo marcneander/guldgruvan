@@ -1,7 +1,9 @@
 .footer {
+    position: relative;
     font-size: $font-size-sm;
-    background-color: #384B4F;
-    padding: 3rem 0 1rem;
+    background-color: #638A52;
+    padding: 6rem 0 1rem;
+    margin-top: 3rem;
 }
 
 .footer-image-link {
@@ -10,4 +12,15 @@
     &:hover, &:active {
         opacity: 1;
     }
+}
+
+.footer-trees {
+    display: flex;
+    justify-content: center;
+    left: 0;
+    right: 0;
+    top: -55px;
+    position: absolute;
+
+    
 }

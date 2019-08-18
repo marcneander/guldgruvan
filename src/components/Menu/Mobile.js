@@ -28,7 +28,7 @@ const MenuItem = ({ to, title, onClick }) => (
             title={title}
             onClick={onClick}
             activeClassName="active"
-            className="text-uppercase text-white text-center"
+            className="text-uppercase text-center"
         >
             {title}
         </Nav.Link>
@@ -42,7 +42,10 @@ MenuItem.propTypes = {
 const Menu = ({ onMenuItemClick }) => {
     const data = useStaticQuery(graphql`
         query {
-            allContentfulMenuItem(sort: { fields: sort }) {
+            allContentfulMenuItem(
+                sort: { fields: sort }
+                filter: { menu: { elemMatch: { menuId: { eq: "main-menu" } } } }
+            ) {
                 edges {
                     node {
                         id

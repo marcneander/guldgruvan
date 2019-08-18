@@ -14,6 +14,7 @@ const renderEmbeddedAsset = node => {
 
 const renderEntryHyperlink = node => {
     let to;
+
     const contentType = node.data.target.sys.contentType.sys.id;
     const { fields } = node.data.target;
 

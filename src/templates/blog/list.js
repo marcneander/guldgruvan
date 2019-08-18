@@ -60,7 +60,7 @@ export default Page;
 
 export const pageQuery = graphql`
     query($skip: Int!, $limit: Int!) {
-        allContentfulPost(skip: $skip, limit: $limit) {
+        allContentfulPost(skip: $skip, limit: $limit, sort: { fields: createdAt, order: DESC }) {
             edges {
                 node {
                     id

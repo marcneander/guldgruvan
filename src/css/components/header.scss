@@ -1,12 +1,14 @@
 .desktop-header {
-    background-color: #638A52;
+    background-color: #D9ECF2;
     .nav-link {
         font-weight: 500;
+        color: #384B4F;
     }
 }
 
 .mobile-header {
-    background-color: #638A52;
+    position: relative;
+    background-color: #D9ECF2;
     padding: 0px 8px;
 }
 
@@ -17,7 +19,7 @@
     right: 0;
     top: 0;
     z-index: 2;
-    background-color: #467346;
+    background-color: #D9ECF2;
     display: none;
     
     &.open {
@@ -31,14 +33,20 @@
     border-color: transparent;
     outline: 0;
     z-index: 1000;
-    position: relative;
-    float: right;
+    position: absolute;
+    right: 8px;
+    height: 68px;
+    top: 0;
     padding: 10px;
     appearance: button;
     cursor: pointer;
 
     &:focus, &:hover, &:active {
         outline: none;
+    }
+
+    &.active {
+        position: fixed;
     }
 
     &.active .offcanvas-btn-bar {
@@ -60,7 +68,7 @@
     transform-origin: 27px;
     transition: transform 0.2s, opacity 0.1s;
     opacity: 1;
-    background-color: #FFF;
+    background-color: #384B4F;
     display: block;
     width: 29px;
     height: 3px;

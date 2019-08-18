@@ -27,7 +27,7 @@ const MenuItem = React.memo(props => (
             to={props.to}
             title={props.title}
             activeClassName="active"
-            className="text-uppercase text-white"
+            className="text-uppercase"
         >
             {props.title}
         </Nav.Link>
@@ -43,7 +43,7 @@ const Menu = ({ className }) => {
         query {
             allContentfulMenuItem(
                 sort: { fields: sort }
-                filter: { menu: { elemMatch: { position: { eq: "header" } } } }
+                filter: { menu: { elemMatch: { menuId: { eq: "main-menu" } } } }
             ) {
                 edges {
                     node {
