@@ -73,7 +73,7 @@
     "react-bootstrap": "1.0.0-beta.12",
     "react-dom": "16.9.0",
     "react-helmet": "5.2.1",
-    "react-transition-group": "4.2.2"
+    "react-transition-group": "4.3.0"
   },
   "devDependencies": {
     "@marcneander/browserslist-config": "1.0.1",
