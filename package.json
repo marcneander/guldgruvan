@@ -31,7 +31,7 @@
   ],
   "scripts": {
     "lint": "eslint .",
-    "test": "echo 'no tests atm'",
+    "test": "yarn run lint",
     "build": "gatsby build",
     "serve": "gatsby serve -H 0.0.0.0",
     "develop": "gatsby develop -H 0.0.0.0"
