@@ -3,7 +3,7 @@ require('dotenv').config();
 
 module.exports = {
     siteMetadata: {
-        itemsPerPage: 50
+        itemsPerPage: 20
     },
     plugins: [
         {
@@ -17,12 +17,12 @@ module.exports = {
         'gatsby-plugin-sharp',
         'gatsby-plugin-react-helmet',
         {
-            resolve: `gatsby-plugin-prefetch-google-fonts`,
+            resolve: 'gatsby-plugin-prefetch-google-fonts',
             options: {
                 fonts: [
                     {
-                        family: `IBM Plex Sans`,
-                        variants: [`500`, `700`]
+                        family: 'Rubik',
+                        variants: ['400', '500', '700']
                     }
                 ]
             }

@@ -20,25 +20,26 @@ PartlyActiveLink.propTypes = {
     className: PropTypes.string.isRequired
 };
 
-const MenuItem = React.memo(props => (
+const MenuItem = ({ to, title, onClick }) => (
     <Nav.Item>
         <Nav.Link
-            as={props.to !== '/' ? PartlyActiveLink : Link}
-            to={props.to}
-            title={props.title}
+            as={to !== '/' ? PartlyActiveLink : Link}
+            to={to}
+            title={title}
+            onClick={onClick}
             activeClassName="active"
-            className="text-uppercase"
+            className="text-uppercase text-center"
         >
-            {props.title}
+            {title}
         </Nav.Link>
     </Nav.Item>
-));
+);
 
 MenuItem.propTypes = {
     ...itemPropType
 };
 
-const Menu = ({ className }) => {
+const Menu = ({ onMenuItemClick }) => {
     const data = useStaticQuery(graphql`
         query {
             allContentfulMenuItem(
@@ -67,20 +68,16 @@ const Menu = ({ className }) => {
     const menuItems = transformContentfulData(data.allContentfulMenuItem.edges);
 
     return (
-        <Nav variant="pills" className={className}>
+        <Nav className="flex-column mobile-menu">
             {menuItems.map(menuItem => (
-                <MenuItem {...menuItem} key={`desktop${menuItem.id}`} />
+                <MenuItem onClick={onMenuItemClick} {...menuItem} key={`mobile_${menuItem.id}`} />
             ))}
         </Nav>
     );
 };
 
 Menu.propTypes = {
-    className: PropTypes.string
-};
-
-Menu.defaultProps = {
-    className: undefined
+    onMenuItemClick: PropTypes.func.isRequired
 };
 
 export default Menu;

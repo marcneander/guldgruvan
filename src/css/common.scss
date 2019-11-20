@@ -1,0 +1,35 @@
+.nav-link {
+    text-decoration: none;
+}
+
+// Contentful richtext fix
+.c-li > p {
+    margin-bottom: 0;
+}
+
+a.btn {
+    text-decoration: none;
+}
+
+.media-asset {
+    width: 140px;
+}
+
+/* Bootstrap carousel overrides */
+.carousel-indicators {
+    margin-bottom: 0.5rem;
+
+    li {
+        border-radius: 50%;
+    }
+}
+
+/* Blockquote overrides */
+.blockquote {
+    font-style: italic;
+}
+
+.map-placeholder {
+    padding-bottom: 75%;
+    position: relative;
+}

@@ -1,0 +1,13 @@
+.post {
+
+    & + .post {
+        padding-top: 1rem;
+        border-top: 1px solid $gray-200;
+    }
+}
+
+.post-body {
+    p:last-child {
+        margin-bottom: 0;
+    }
+}

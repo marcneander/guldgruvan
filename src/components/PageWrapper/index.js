@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import { Container } from 'react-bootstrap';
 
 import Footer from '../Footer';
-import Background from '../Background';
 import { Desktop as DesktopHeader, Mobile as MobileHeader } from '../Header';
 
 const Main = ({ children }) => {
     return (
-        <Container className="main-container">
-            <div className="main">{children}</div>
-        </Container>
+        <div className="main-container">
+            <Container>
+                <div className="main">{children}</div>
+            </Container>
+        </div>
     );
 };
 
@@ -22,13 +23,12 @@ const PageWrapper = props => {
     const { children } = props;
 
     return (
-        <>
-            <Background />
+        <React.Fragment>
             <DesktopHeader />
-            {/* <MobileHeader /> */}
+            <MobileHeader />
             <Main>{children}</Main>
             <Footer />
-        </>
+        </React.Fragment>
     );
 };
 

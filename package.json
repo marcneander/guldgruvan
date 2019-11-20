@@ -24,64 +24,51 @@
     "gatsby"
   ],
   "eslintConfig": {
-    "extends": "@marcneander/react"
+    "extends": "@purplepid/react"
   },
   "browserslist": [
-    "extends @marcneander/browserslist-config"
+    "> 1% in SE"
   ],
-  "renovate": {
-    "extends": [
-      "config:base"
-    ],
-    "rebaseStalePrs": true,
-    "automergeType": "branch",
-    "automerge": true,
-    "major": {
-      "automerge": false
-    }
-  },
   "scripts": {
-    "lint": "yarn run lint:css && yarn run lint:js",
-    "lint:js": "eslint src",
-    "lint:css": "stylelint './src/**/*.js'",
-    "test": "echo 'no tests atm'",
+    "lint": "eslint .",
+    "test": "yarn run lint",
     "build": "gatsby build",
     "serve": "gatsby serve -H 0.0.0.0",
     "develop": "gatsby develop -H 0.0.0.0"
   },
   "dependencies": {
-    "@contentful/rich-text-react-renderer": "13.4.0",
-    "@contentful/rich-text-types": "13.4.0",
-    "@reach/router": "1.2.1",
-    "bootstrap": "4.3.1",
-    "classnames": "2.2.6",
+    "@contentful/rich-text-react-renderer": "^13.4.0",
+    "@contentful/rich-text-types": "^13.4.0",
+    "@reach/router": "^1.2.1",
+    "bootstrap": "^4.3.1",
+    "classnames": "^2.2.6",
     "dotenv": "8.2.0",
     "gatsby": "2.18.0",
     "gatsby-image": "2.2.33",
     "gatsby-plugin-layout": "1.1.15",
-    "gatsby-plugin-offline": "2.2.10",
-    "gatsby-plugin-prefetch-google-fonts": "1.4.3",
+    "gatsby-plugin-offline": "3.0.22",
+    "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
     "gatsby-plugin-react-helmet": "3.1.15",
-    "gatsby-plugin-sass": "2.1.23",
+    "gatsby-plugin-sass": "^2.1.23",
     "gatsby-plugin-sharp": "2.3.2",
     "gatsby-source-contentful": "2.1.61",
-    "gatsby-source-filesystem": "2.1.38",
+    "gatsby-source-filesystem": "^2.1.38",
     "gatsby-transformer-sharp": "2.3.5",
-    "node-sass": "4.13.0",
+    "google-maps-react": "^2.0.2",
+    "node-sass": "^4.13.0",
     "prop-types": "15.7.2",
     "react": "16.12.0",
-    "react-bootstrap": "1.0.0-beta.15",
+    "react-bootstrap": "^1.0.0-beta.15",
     "react-dom": "16.12.0",
+    "react-feather": "^2.0.3",
     "react-helmet": "5.2.1",
     "react-transition-group": "4.3.0"
   },
   "devDependencies": {
-    "@marcneander/browserslist-config": "1.0.1",
-    "@marcneander/eslint-config-react": "1.1.0",
-    "eslint": "5.16.0",
-    "husky": "2.3.0",
-    "lint-staged": "8.1.7",
-    "prettier": "1.19.1",
-    "stylelint": "10.0.1"
+    "@purplepid/eslint-config-react": "^0.0.1",
+    "eslint": "6.6.0",
+    "husky": "3.1.0",
+    "lint-staged": "9.4.3",
+    "prettier": "1.19.1"
   }
 }

@@ -1,5 +1,80 @@
 .desktop-header {
+    background-color: #638A52;
     .nav-link {
-        color: $body-color;
+        font-weight: 500;
+        color: #FFF;
+    }
+}
+
+.mobile-header {
+    position: relative;
+    background-color: #638A52;
+    padding: 0px 8px;
+}
+
+.offcanvas {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    background-color: #638A52;
+    display: none;
+
+    &.open {
+        display: block;
+        animation: offcanvas 100ms ease-in;
+    }
+}
+
+.offcanvas-btn {
+    background-color: transparent;
+    border-color: transparent;
+    outline: 0;
+    z-index: 1000;
+    position: absolute;
+    right: 8px;
+    height: 68px;
+    top: 0;
+    padding: 10px;
+    appearance: button;
+    cursor: pointer;
+
+    &:focus, &:hover, &:active {
+        outline: none;
+    }
+
+    &.active {
+        position: fixed;
+    }
+
+    &.active .offcanvas-btn-bar {
+        &:nth-child(2) {
+            transform: rotate(-45deg);
+        }
+
+        &:nth-child(3) {
+            opacity: 0;
+        }
+
+        &:nth-child(4) {
+            transform: rotate(45deg);
+        }
+    }
+}
+
+.offcanvas-btn-bar {
+    transform-origin: 27px;
+    transition: transform 0.2s, opacity 0.1s;
+    opacity: 1;
+    background-color: #FFF;
+    display: block;
+    width: 29px;
+    height: 3px;
+    border-radius: 2px;
+
+    & + & {
+        margin-top: 6px;
     }
 }

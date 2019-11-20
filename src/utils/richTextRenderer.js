@@ -4,8 +4,17 @@ import { Link } from 'gatsby';
 import { BLOCKS, MARKS, INLINES } from '@contentful/rich-text-types';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 
+import ContentfulFluidAsset from '../components/ContentfulFluidAsset';
+import Person from '../components/Person';
+import Map from '../components/Map';
+
+const renderEmbeddedAsset = node => {
+    return <ContentfulFluidAsset id={node.data.target.sys.id} title={node.data.target.fields.title.sv} />;
+};
+
 const renderEntryHyperlink = node => {
     let to;
+
     const contentType = node.data.target.sys.contentType.sys.id;
     const { fields } = node.data.target;
 
@@ -24,9 +33,31 @@ const renderEntryHyperlink = node => {
     return <Link to={to}>{node.content}</Link>;
 };
 
+const renderEmbeddedEntry = node => {
+    switch (node.data.target.sys.contentType.sys.id) {
+        case 'person':
+            return <Person data={node.data.target.fields} />;
+
+        case 'map':
+            return (
+                <Map
+                    lng={node.data.target.fields.location.sv.lon}
+                    lat={node.data.target.fields.location.sv.lat}
+                    name={node.data.target.fields.name.sv}
+                />
+            );
+
+        default:
+            return null;
+    }
+};
+
 const options = {
     renderNode: {
+        [BLOCKS.EMBEDDED_ASSET]: node => renderEmbeddedAsset(node),
+        [BLOCKS.EMBEDDED_ENTRY]: node => renderEmbeddedEntry(node),
         [BLOCKS.PARAGRAPH]: (node, children) => <p>{children}</p>,
+        [BLOCKS.LIST_ITEM]: (node, children) => <li className="c-li">{children}</li>,
         [INLINES.ENTRY_HYPERLINK]: node => renderEntryHyperlink(node),
         [INLINES.HYPERLINK]: (node, children) => (
             <a href={node.data.uri} title={children}>

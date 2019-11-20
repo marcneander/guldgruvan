@@ -1,13 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Row, Col } from 'react-bootstrap';
 import Helmet from 'react-helmet';
-import { Link, graphql } from 'gatsby';
+import { graphql } from 'gatsby';
+import Sidebar from '../../components/Sidebar';
+import Post from '../../components/Post';
+import Pagination from '../../components/Pagination';
 
 const propTypes = {
     data: PropTypes.shape({
         allContentfulPost: PropTypes.shape({
             edges: PropTypes.array
+        }),
+        totalCount: PropTypes.shape({
+            totalCount: PropTypes.number
         })
+    }).isRequired,
+    pageContext: PropTypes.shape({
+        limit: PropTypes.number,
+        skip: PropTypes.number
     }).isRequired
 };
 
@@ -16,18 +27,31 @@ const Page = React.memo(props => {
     const pageTitle = 'Blogg';
 
     return (
-        <div>
+        <React.Fragment>
             <Helmet>
                 <title>{pageTitle}</title>
             </Helmet>
-            <h1>{pageTitle}</h1>
-            {posts.map(post => (
-                <div>
-                    <Link to={`/blogg/${post.node.slug}`}>{post.node.title}</Link>
-                    <div>{post.node.description.description}</div>
-                </div>
-            ))}
-        </div>
+            <Row>
+                <Col md={8} className="mb-4 mb-md-0">
+                    {posts.length === 0 && <p>Det finns inga blogginlägg just nu.</p>}
+                    {posts.map(post => (
+                        <Post key={post.node.id} preview post={post.node} />
+                    ))}
+                    <Pagination
+                        total={props.data.totalCount.totalCount}
+                        limit={props.pageContext.limit}
+                        skip={props.pageContext.skip}
+                        baseUrl="/blogg/sida/"
+                    />
+                </Col>
+                <Sidebar
+                    data={{
+                        menuData: {},
+                        blogPosts: []
+                    }}
+                />
+            </Row>
+        </React.Fragment>
     );
 });
 
@@ -37,22 +61,32 @@ export default Page;
 
 export const pageQuery = graphql`
     query($skip: Int!, $limit: Int!) {
-        allContentfulPost(skip: $skip, limit: $limit) {
+        allContentfulPost(skip: $skip, limit: $limit, sort: { fields: createdAt, order: DESC }) {
             edges {
                 node {
+                    id
                     title
                     slug
-                    heroImage {
-                        fluid {
-                            src
-                        }
-                        title
-                    }
                     description {
                         description
                     }
+                    images {
+                        contentful_id
+                        title
+                    }
+                    body {
+                        json
+                    }
+                    createdAt(formatString: "D MMMM, YYYY", locale: "sv-SE")
+                    author {
+                        name
+                    }
                 }
             }
+        }
+
+        totalCount: allContentfulPost {
+            totalCount
         }
     }
 `;

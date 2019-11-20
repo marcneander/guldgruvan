@@ -5,9 +5,9 @@ import Img from 'gatsby-image';
 const Logotype = () => {
     const data = useStaticQuery(graphql`
         query {
-            file(relativePath: { eq: "logo.png" }) {
+            file(relativePath: { eq: "logotype.png" }) {
                 childImageSharp {
-                    fixed(width: 250, quality: 100) {
+                    fixed(height: 80, quality: 100) {
                         ...GatsbyImageSharpFixed
                     }
                 }
@@ -15,7 +15,7 @@ const Logotype = () => {
         }
     `);
 
-    return <Img fixed={data.file.childImageSharp.fixed} fadeIn={false} />;
+    return <Img fixed={data.file.childImageSharp.fixed} fadeIn={false} className="d-block my-1" />;
 };
 
 export default Logotype;

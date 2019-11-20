@@ -20,7 +20,7 @@ const Page = React.memo(props => {
 
     return (
         <Row>
-            <Col md={8}>
+            <Col md={8} className="mb-4 mb-md-0">
                 <Helmet>
                     <title>{page.title}</title>
                 </Helmet>
@@ -29,7 +29,7 @@ const Page = React.memo(props => {
             </Col>
             <Sidebar
                 data={{
-                    menuData: page.menuitem[0] || [],
+                    menuData: page.menuitem ? page.menuitem[0] : [],
                     blogPosts: posts
                 }}
             />
@@ -68,7 +68,7 @@ export const pageQuery = graphql`
                 }
             }
         }
-        allContentfulPost(skip: 0, limit: 5) {
+        allContentfulPost(skip: 0, limit: 5, sort: { fields: createdAt, order: DESC }) {
             edges {
                 node {
                     title
