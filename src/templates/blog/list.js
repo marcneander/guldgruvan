@@ -27,12 +27,13 @@ const Page = React.memo(props => {
     const pageTitle = 'Blogg';
 
     return (
-        <>
+        <React.Fragment>
             <Helmet>
                 <title>{pageTitle}</title>
             </Helmet>
             <Row>
                 <Col md={8} className="mb-4 mb-md-0">
+                    {posts.length === 0 && <p>Det finns inga blogginlägg just nu.</p>}
                     {posts.map(post => (
                         <Post key={post.node.id} preview post={post.node} />
                     ))}
@@ -50,7 +51,7 @@ const Page = React.memo(props => {
                     }}
                 />
             </Row>
-        </>
+        </React.Fragment>
     );
 });
 

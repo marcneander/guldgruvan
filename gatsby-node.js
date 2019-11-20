@@ -1,3 +1,4 @@
+/* eslint-disable no-async-promise-executor */
 const path = require('path');
 
 exports.createPages = ({ graphql, actions }) => {

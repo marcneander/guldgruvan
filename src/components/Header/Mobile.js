@@ -53,7 +53,7 @@ const MobileHeader = () => {
     const [showOffcanvas, setOffcanvas] = useState(false);
 
     return (
-        <>
+        <React.Fragment>
             <div className="mobile-header d-flex justify-content-between d-sm-none">
                 <Link to="/">
                     <Logotype />
@@ -72,7 +72,7 @@ const MobileHeader = () => {
                     }}
                 />
             </Offcanvas>
-        </>
+        </React.Fragment>
     );
 };
 

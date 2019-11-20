@@ -23,12 +23,12 @@ const PageWrapper = props => {
     const { children } = props;
 
     return (
-        <>
+        <React.Fragment>
             <DesktopHeader />
             <MobileHeader />
             <Main>{children}</Main>
             <Footer />
-        </>
+        </React.Fragment>
     );
 };
 

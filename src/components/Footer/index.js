@@ -11,7 +11,7 @@ const Footer = () => {
             huddinge: file(relativePath: { eq: "huddinge.png" }) {
                 childImageSharp {
                     fixed(width: 160) {
-                        ...GatsbyImageSharpFixed_withWebp_noBase64
+                        ...GatsbyImageSharpFixed
                     }
                 }
             }
@@ -19,7 +19,7 @@ const Footer = () => {
             ur_och_skur: file(relativePath: { eq: "ur-och-skur.png" }) {
                 childImageSharp {
                     fixed(width: 120) {
-                        ...GatsbyImageSharpFixed_withWebp_noBase64
+                        ...GatsbyImageSharpFixed
                     }
                 }
             }

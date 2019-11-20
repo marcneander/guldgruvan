@@ -54,8 +54,8 @@ const Sidebar = ({ data }) => {
                 <div className="sidebar-box submenu p-3">
                     <h5>Välkommen att ansöka</h5>
                     <p>
-                        Ska din guldklimp börja på förskola i höst eller kanske nästa år? Eller känns det inte riktigt
-                        bra med den förskola ni har idag?
+                        Ska din guldklimp börja på förskola nästa termin? Eller känns det inte riktigt bra med den
+                        förskola ni har idag?
                     </p>
                     <Link to="/kontakt" className="btn btn-block btn-light">
                         Kontakta oss

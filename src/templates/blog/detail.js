@@ -14,13 +14,13 @@ const Page = React.memo(props => {
     const post = props.data.contentfulPost;
 
     return (
-        <>
+        <React.Fragment>
             <Helmet>
                 <title>{post.title}</title>
                 <meta name="description" content={post.description.description} />
             </Helmet>
             <Post post={post} />
-        </>
+        </React.Fragment>
     );
 });
 
