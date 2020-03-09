@@ -3,16 +3,11 @@
     <a href="https://marcneander.io">
         <img src="https://raw.githubusercontent.com/marcneander/marcneander.io/master/src/images/m-dark.png" alt="Marc Neander logotype" width="151"></a>
 </p>
-<br />
-<p align="center">
-     <a href="https://renovatebot.com">
-        <img src="https://badges.renovateapi.com/github/marcneander/guldgruvan" alt="Renovate badge"></a>
-    <a href="https://travis-ci.com/marcneander/guldgruvan">
-        <img src="https://api.travis-ci.com/marcneander/guldgruvan.svg?branch=master" alt="Build Status"></a>
-</p>
 
 # guldgruvan
 website for the preschool Guldgruvan.
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/64049eba-2814-4627-9857-1c425a8e0ac8/deploy-status)](https://app.netlify.com/sites/guldgruvan/deploys)
 
 ## Getting started
 

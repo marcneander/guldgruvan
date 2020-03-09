@@ -3,26 +3,6 @@
   "name": "guldgruvan",
   "author": "Marc Neander <marcneander@gmail.com>",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/marcneander/guldgruvan"
-  },
-  "lint-staged": {
-    "src/**/*.js": [
-      "yarn run lint",
-      "git add"
-    ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "keywords": [
-    "guldgruvan",
-    "react",
-    "gatsby"
-  ],
   "eslintConfig": {
     "extends": "@purplepid/react"
   },
@@ -70,5 +50,9 @@
     "husky": "3.1.0",
     "lint-staged": "9.4.3",
     "prettier": "1.19.1"
+  },
+  "volta": {
+    "node": "12.14.1",
+    "yarn": "1.21.1"
   }
 }
