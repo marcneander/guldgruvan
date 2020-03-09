@@ -16,7 +16,6 @@ const propTypes = {
 
 const Page = React.memo(props => {
     const page = props.data.contentfulPage;
-    const posts = props.data.allContentfulPost.edges;
 
     return (
         <Row>
@@ -29,8 +28,7 @@ const Page = React.memo(props => {
             </Col>
             <Sidebar
                 data={{
-                    menuData: page.menuitem ? page.menuitem[0] : [],
-                    blogPosts: posts
+                    menuData: page.menuitem ? page.menuitem[0] : []
                 }}
             />
         </Row>
@@ -65,15 +63,6 @@ export const pageQuery = graphql`
                         id
                         title
                     }
-                }
-            }
-        }
-        allContentfulPost(skip: 0, limit: 5, sort: { fields: createdAt, order: DESC }) {
-            edges {
-                node {
-                    title
-                    slug
-                    id
                 }
             }
         }

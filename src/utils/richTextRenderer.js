@@ -22,9 +22,6 @@ const renderEntryHyperlink = node => {
         case 'page':
             to = fields.url.sv.fields.url.sv;
             break;
-        case 'post':
-            to = `/blogg/${fields.slug.sv}`;
-            break;
         default:
             to = '/404';
             break;

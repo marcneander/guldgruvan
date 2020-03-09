@@ -1,8 +1,5 @@
 <br />
-<p align="center">
-    <a href="https://marcneander.io">
-        <img src="https://raw.githubusercontent.com/marcneander/marcneander.io/master/src/images/m-dark.png" alt="Marc Neander logotype" width="151"></a>
-</p>
+<p align="center"><a href="https://marcneander.io"><img src="https://raw.githubusercontent.com/marcneander/marcneander.io/master/src/images/m-dark.png" alt="Marc Neander logotype" width="151"></a></p>
 
 # guldgruvan
 website for the preschool Guldgruvan.
