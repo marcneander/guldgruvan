@@ -68,7 +68,7 @@
     "@purplepid/eslint-config-react": "^0.0.1",
     "eslint": "6.6.0",
     "husky": "3.1.0",
-    "lint-staged": "9.4.3",
+    "lint-staged": "10.0.8",
     "prettier": "1.19.1"
   }
 }
