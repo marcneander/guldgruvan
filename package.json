@@ -53,7 +53,7 @@
     "gatsby-plugin-sharp": "2.3.2",
     "gatsby-source-contentful": "2.1.61",
     "gatsby-source-filesystem": "^2.1.38",
-    "gatsby-transformer-sharp": "2.3.5",
+    "gatsby-transformer-sharp": "2.3.17",
     "google-maps-react": "^2.0.2",
     "node-sass": "^4.13.0",
     "prop-types": "15.7.2",
