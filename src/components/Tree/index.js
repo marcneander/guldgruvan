@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Tree = ({ width, height, className }) => {
+const Tree = ({ width, className }) => {
     return (
-        <svg viewBox="0 0 122.98 175.55" width={width} height={height} className={className}>
+        <svg viewBox="0 0 122.98 175.55" width={width} className={className}>
             <g>
                 <ellipse
                     transform="matrix(1 -4.187923e-03 4.187923e-03 1 -0.7114 0.259)"
@@ -76,7 +76,6 @@ const Tree = ({ width, height, className }) => {
 
 Tree.propTypes = {
     width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
     className: PropTypes.string
 };
 

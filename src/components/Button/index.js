@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import styles from './Button.module.scss';
 
 const propTypes = {
-    as: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+    as: PropTypes.any,
     children: PropTypes.node.isRequired,
     disabled: PropTypes.bool,
     onClick: PropTypes.func,

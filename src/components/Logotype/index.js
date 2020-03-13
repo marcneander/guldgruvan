@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
 
 import styles from './Logotype.module.scss';
 import { useOffcanvas } from '../OffcanvasProvider';
@@ -10,7 +11,7 @@ const Logotype = () => {
             file(relativePath: { eq: "logotype.png" }) {
                 childImageSharp {
                     fixed(height: 50, quality: 100) {
-                        ...GatsbyImageSharpFixed
+                        ...GatsbyImageSharpFixed_noBase64
                     }
                 }
             }
@@ -21,7 +22,7 @@ const Logotype = () => {
 
     return (
         <Link to="/" className={styles.logotype} onClick={hideOffcanvas}>
-            <img src={data.file.childImageSharp.fixed.src} alt="Guldgruvan logotyp" />
+            <Img fixed={data.file.childImageSharp.fixed} alt="Guldgruvan logotyp" loading="eager" fadeIn={false} />
         </Link>
     );
 };

@@ -9,8 +9,6 @@ import Person from '../components/Person';
 import Map from '../components/Map';
 
 const renderEmbeddedAsset = node => {
-    console.log(node);
-
     return <ContentfulFluidAsset id={node.data.target.sys.id} title={node.data.target.fields.title.sv} />;
 };
 

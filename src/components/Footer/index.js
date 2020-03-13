@@ -81,7 +81,7 @@ const Footer = () => {
                                 {menuItem.subItems && (
                                     <ul>
                                         {menuItem.subItems.map(subItem => (
-                                            <li>
+                                            <li key={`footer${subItem.id}`}>
                                                 <Link to={subItem.to}>{subItem.title}</Link>
                                             </li>
                                         ))}
