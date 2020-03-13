@@ -8,6 +8,7 @@
     color: #fff;
     position: relative;
     font-size: 16px;
+    max-width: 100%;
 
     a,
     a:visited,
@@ -62,17 +63,18 @@
 
 .trees {
     display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
     margin: 0 auto;
-    width: $container-width;
-    max-width: 100%;
     left: 0;
     right: 0;
     top: -55px;
     position: absolute;
-    overflow: hidden;
+    overflow-x: hidden;
 
     svg {
         margin: 0 6px;
+        flex-shrink: 0;
     }
 }
 
