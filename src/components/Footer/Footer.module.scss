@@ -1,0 +1,82 @@
+@import "variables";
+
+.footer {
+    margin-top: 80px;
+    padding-bottom: 30px;
+    padding-top: 80px;
+    background-color: $green;
+    color: #fff;
+    position: relative;
+    font-size: 16px;
+
+    a,
+    a:visited,
+    a:hover,
+    a:focus,
+    a:active {
+        color: #fff;
+    }
+
+    ul {
+        margin: 0;
+        padding-left: 16px;
+
+        & > li > ul {
+            padding-left: 20px;
+        }
+    }
+
+    h4 {
+        font-size: 20px;
+    }
+}
+
+.column,
+.wide-column {
+    width: 100%;
+    margin-bottom: 30px;
+    box-sizing: border-box;
+
+    @media (min-width: $breakpoint) {
+        margin-bottom: 0;
+        width: 33%;
+        padding-right: 30px;
+
+        &:last-child {
+            padding-right: 0;
+        }
+    }
+}
+
+.link-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    padding-top: 30px;
+
+    a {
+        padding: 10px;
+    }
+}
+
+.trees {
+    display: flex;
+    margin: 0 auto;
+    width: $container-width;
+    left: 0;
+    right: 0;
+    top: -55px;
+    position: absolute;
+    overflow: hidden;
+
+    svg {
+        margin: 0 6px;
+    }
+}
+
+.web-by {
+    margin-top: 40px;
+    font-size: 14px;
+    text-align: center;
+}

@@ -1,0 +1,11 @@
+@import "variables";
+
+.logotype {
+    padding-top: 8px;
+    z-index: 101;
+    display: flex;
+
+    @media (min-width: $breakpoint) {
+        padding-top: 12px;
+    }
+}

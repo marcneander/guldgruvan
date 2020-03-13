@@ -1,0 +1,11 @@
+@import "variables";
+
+.wrap {
+    display: flex;
+    margin-left: 8px;
+    display: none;
+
+    @media (min-width: $breakpoint) {
+        display: block;
+    }
+}

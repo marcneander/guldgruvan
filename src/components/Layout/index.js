@@ -1,13 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import PageWrapper from '../PageWrapper';
+import Header from '../Header';
+import Footer from '../Footer';
+import OffcanvasProvider from '../OffcanvasProvider';
+import Offcanvas from '../Offcanvas';
+import OffcanvasNav from '../OffcanvasNav';
 
-import '../../css/style.scss';
-
-const propTypes = {
-    children: PropTypes.node.isRequired
-};
+import styles from './Layout.module.scss';
 
 const Layout = ({ children }) => {
     const description =
@@ -34,11 +34,20 @@ const Layout = ({ children }) => {
                 <meta property="og:url" content="https://guldgruvan.nu" />
                 <meta property="og:image" content="https://guldgruvan.nu/og-image" />
             </Helmet>
-            <PageWrapper>{children}</PageWrapper>
+            <OffcanvasProvider>
+                <Header />
+                <div className={styles.main}>{children}</div>
+                <Footer />
+                <Offcanvas>
+                    <OffcanvasNav />
+                </Offcanvas>
+            </OffcanvasProvider>
         </React.Fragment>
     );
 };
 
-Layout.propTypes = propTypes;
+Layout.propTypes = {
+    children: PropTypes.node.isRequired
+};
 
 export default Layout;

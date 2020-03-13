@@ -1,0 +1,64 @@
+@import "variables";
+
+$purple-btn: lighten($color: $green, $amount: 8%);
+
+.button {
+    outline: 0 !important;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 22px;
+    display: inline-flex;
+    flex-direction: column;
+    text-decoration: none;
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px 18px 12px;
+    border-radius: 50px;
+    border: none;
+    box-shadow: 0px 4px 0px darken($color: $orange, $amount: 14%), 0px -4px 0px $orange;
+    cursor: pointer;
+    color: #FFFFFF;
+    background-color: $orange;
+
+    &:visited {
+        color: #FFFFFF;
+    }
+
+    &:hover,
+    &:focus {
+        color: #FFFFFF;
+        box-shadow: 0px 4px 0px darken($color: $orange, $amount: 14%), 0px -4px 0px lighten($color: $orange, $amount: 5%);
+        background-color: lighten($color: $orange, $amount: 5%);
+        outline: 0 !important;
+    }
+
+    &:active {
+        outline: 0 !important;
+        background-color: darken($color: $orange, $amount: 3%);
+        box-shadow: 0px 4px 0px darken($color: $orange, $amount: 3%);
+        padding-top: 13px;
+        padding-bottom: 9px;
+    }
+
+    &::-moz-focus-inner {border:0;}
+}
+
+.secondary-button {
+    background-color: $purple-btn;
+    box-shadow: 0px 4px 0px darken($color: $purple-btn, $amount: 14%), 0px -4px 0px $purple-btn;
+
+    &:hover,
+    &:focus {
+        box-shadow: 0px 4px 0px darken($color: $purple-btn, $amount: 14%), 0px -4px 0px lighten($color: $purple-btn, $amount: 5%);
+        background-color: lighten($color: $purple-btn, $amount: 5%);
+    }
+
+    &:active {
+        background-color: darken($color: $purple-btn, $amount: 3%);
+        box-shadow: 0px 4px 0px darken($color: $purple-btn, $amount: 3%);
+    }
+}
+
+

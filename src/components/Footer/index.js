@@ -1,16 +1,18 @@
 import React from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
-import { Container, Row, Col } from 'react-bootstrap';
 import Img from 'gatsby-image';
-
 import Tree from '../Tree';
+import Container from '../Container';
+import { transformContentfulData } from '../../utils';
+
+import styles from './Footer.module.scss';
 
 const Footer = () => {
     const data = useStaticQuery(graphql`
         query {
             huddinge: file(relativePath: { eq: "huddinge.png" }) {
                 childImageSharp {
-                    fixed(width: 160) {
+                    fixed(width: 140) {
                         ...GatsbyImageSharpFixed
                     }
                 }
@@ -18,7 +20,7 @@ const Footer = () => {
 
             ur_och_skur: file(relativePath: { eq: "ur-och-skur.png" }) {
                 childImageSharp {
-                    fixed(width: 120) {
+                    fixed(width: 110) {
                         ...GatsbyImageSharpFixed
                     }
                 }
@@ -26,7 +28,7 @@ const Footer = () => {
 
             allContentfulMenuItem(
                 sort: { fields: sort }
-                filter: { menu: { elemMatch: { menuId: { eq: "footer-menu" } } } }
+                filter: { menu: { elemMatch: { menuId: { eq: "main-menu" } } } }
             ) {
                 edges {
                     node {
@@ -35,97 +37,100 @@ const Footer = () => {
                             url
                         }
                         title
+                        menuitem {
+                            id
+                        }
+                        contentfulparent {
+                            id
+                        }
                     }
                 }
             }
         }
     `);
 
+    const menuItems = transformContentfulData(data.allContentfulMenuItem.edges);
+
     return (
-        <div className="footer text-white text-center text-md-left">
-            <div className="footer-trees">
-                <div className="d-none d-md-block">
-                    <Tree width={58} height={75} className="mr-4" />
-                    <Tree width={30} height={50} className="mr-3 mt-3" />
-                    <Tree width={60} height={90} />
-                    <Tree width={30} height={50} className="mr-5" />
-                    <Tree width={60} height={90} className="mr-2 mt-3" />
-                    <Tree width={50} height={65} />
-                    <Tree width={30} height={50} className="mr-5" />
-                </div>
-                <Tree width={60} height={90} className="mb-4" />
-                <Tree width={50} height={65} className="mr-4 mb-3" />
-                <Tree width={30} height={50} className="mt-3" />
-                <Tree width={60} height={90} className="mt-4" />
-                <Tree width={50} height={65} className="mt-3" />
+        <div className={styles.footer}>
+            <div className={styles.trees}>
+                <Tree width={58} className="mr-4" />
+                <Tree width={40} className="mr-3 mt-3" />
+                <Tree width={60} />
+                <Tree width={32} className="mr-5" />
+                <Tree width={55} className="mr-2 mt-3" />
+                <Tree width={39} />
+                <Tree width={28} className="mr-5" />
+                <Tree width={66} className="mb-4" />
+                <Tree width={50} className="mr-4 mb-3" />
+                <Tree width={36} className="mt-3" />
+                <Tree width={60} className="mt-4" />
+                <Tree width={44} className="mt-3" />
+                <Tree width={50} className="mr-4 mb-3" />
+                <Tree width={36} className="mt-3" />
+                <Tree width={60} className="mt-4" />
+                <Tree width={44} className="mt-3" />
             </div>
             <Container>
-                <Row>
-                    <Col xs={12} md={3} className="mb-3">
-                        <h4>Meny</h4>
-                        <ul className="list-unstyled">
-                            {data.allContentfulMenuItem.edges.map(menuItem => (
-                                <li key={`footer${menuItem.node.id}`}>
-                                    <Link to={menuItem.node.url.url} className="text-white">
-                                        {menuItem.node.title}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </Col>
-                    <Col xs={12} md={3} className="mb-3">
-                        <h4>Kontakt</h4>
-                        <p>Tingsvägen 3, 141 62 Huddinge</p>
-                        <p>
-                            Telefon:
-                            <br />
-                            <a href="tel:086080807" className="text-white">
-                                08-608 08 07
-                            </a>
-                        </p>
-                        <p>
-                            E-post:
-                            <br />
-                            <a href="mailto:personal@guldgruvan.nu" className="text-white">
-                                personal@guldgruvan.nu
-                            </a>
-                        </p>
-                    </Col>
-                    <Col xs={12} md={6}>
-                        <h4>Länkar</h4>
-                        <Row className="mt-3 mt-md-4">
-                            <Col
-                                md={5}
-                                xs={12}
-                                className="mb-3 d-flex justify-content-center justify-content-md-start align-items-center"
-                            >
-                                <a
-                                    href="https://www.friluftsframjandet.se/iurochskur"
-                                    target="_blank"
-                                    className="footer-image-link"
-                                    rel="noopener noreferrer"
-                                >
-                                    <Img fixed={data.ur_och_skur.childImageSharp.fixed} />
-                                </a>
-                            </Col>
-                            <Col
-                                md={7}
-                                xs={12}
-                                className="mb-3 d-flex justify-content-center justify-content-md-start align-items-center"
-                            >
-                                <a
-                                    href="https://www.huddinge.se/forskola-och-skola/forskola/"
-                                    target="_blank"
-                                    className="footer-image-link"
-                                    rel="noopener noreferrer"
-                                >
-                                    <Img fixed={data.huddinge.childImageSharp.fixed} />
-                                </a>
-                            </Col>
-                        </Row>
-                    </Col>
-                </Row>
+                <div className={styles.column}>
+                    <h4>Meny</h4>
+                    <ul>
+                        {menuItems.map(menuItem => (
+                            <li key={`footer${menuItem.id}`}>
+                                <Link to={menuItem.to}>{menuItem.title}</Link>
+                                {menuItem.subItems && (
+                                    <ul>
+                                        {menuItem.subItems.map(subItem => (
+                                            <li>
+                                                <Link to={subItem.to}>{subItem.title}</Link>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+                <div className={styles.column}>
+                    <h4>Kontakt</h4>
+                    <p>Tingsvägen 3, 141 62 Huddinge</p>
+                    <p>
+                        Telefon:
+                        <br />
+                        <a href="tel:086080807">08-608 08 07</a>
+                    </p>
+                    <p>
+                        E-post:
+                        <br />
+                        <a href="mailto:personal@guldgruvan.nu">personal@guldgruvan.nu</a>
+                    </p>
+                </div>
+                <div className={styles.column}>
+                    <h4>Länkar</h4>
+                    <div className={styles.linkWrap}>
+                        <a
+                            href="https://www.friluftsframjandet.se/iurochskur"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Img fixed={data.ur_och_skur.childImageSharp.fixed} />
+                        </a>
+                        <a
+                            href="https://www.huddinge.se/forskola-och-skola/forskola/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Img fixed={data.huddinge.childImageSharp.fixed} />
+                        </a>
+                    </div>
+                </div>
             </Container>
+            <p className={styles.webBy}>
+                web by{' '}
+                <a href="https://marcneander.io" target="_blank" rel="noopener noreferrer">
+                    Marc Neander
+                </a>
+            </p>
         </div>
     );
 };

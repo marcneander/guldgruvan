@@ -2,10 +2,14 @@ const path = require('path');
 require('dotenv').config();
 
 module.exports = {
-    siteMetadata: {
-        itemsPerPage: 20
-    },
+    siteMetadata: {},
     plugins: [
+        {
+            resolve: 'gatsby-plugin-sass',
+            options: {
+                includePaths: [`${__dirname}/src`]
+            }
+        },
         {
             resolve: 'gatsby-source-filesystem',
             options: {
@@ -17,20 +21,9 @@ module.exports = {
         'gatsby-plugin-sharp',
         'gatsby-plugin-react-helmet',
         {
-            resolve: 'gatsby-plugin-prefetch-google-fonts',
+            resolve: 'gatsby-plugin-google-fonts',
             options: {
-                fonts: [
-                    {
-                        family: 'Rubik',
-                        variants: ['400', '500', '700']
-                    }
-                ]
-            }
-        },
-        {
-            resolve: 'gatsby-plugin-sass',
-            options: {
-                includePaths: [path.resolve(__dirname, 'node_modules')]
+                fonts: ['Rubik:400,500,700']
             }
         },
         {
