@@ -11,11 +11,11 @@ import styles from './Layout.module.scss';
 
 const Layout = ({ children }) => {
     const description =
-        'Guldgruvan är en förskola med plats för 24 barn mellan 1-5 år. Vi föräldrar har full insyn och kan vara med och påverka våra barns vardag, vilket i kombination med personalens pedagogiska kunskap blir en trygg förskola för våra barn.';
+        'Guldgruvan är en I Ur och Skur förskola i Huddinge med plats för 24 barn mellan 1-5 år. Vi är ett föräldrakooperativ så föräldrar har full insyn och kan vara med och påverka våra barns vardag, vilket i kombination med personalens pedagogiska kunskap blir en trygg förskola för våra barn.';
 
     return (
         <React.Fragment>
-            <Helmet defaultTitle="Guldgruvan - Föräldrakooperativet i Huddinge" titleTemplate="%s - Guldgruvan">
+            <Helmet defaultTitle="Guldgruvan - I Ur och Skur förskola i Huddinge" titleTemplate="%s - Guldgruvan">
                 <html lang="en" />
                 <meta name="description" content={description} />
 
