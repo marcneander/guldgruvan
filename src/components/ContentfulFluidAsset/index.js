@@ -20,7 +20,7 @@ const ContentfulFluidAsset = ({ id, title, crop }) => {
                 edges {
                     node {
                         contentful_id
-                        fluid(maxWidth: 838) {
+                        fluid(maxWidth: 590, quality: 100) {
                             ...GatsbyContentfulFluid_withWebp_noBase64
                         }
                     }
@@ -31,7 +31,7 @@ const ContentfulFluidAsset = ({ id, title, crop }) => {
                 edges {
                     node {
                         contentful_id
-                        fluid(maxWidth: 838, maxHeight: 472) {
+                        fluid(maxWidth: 590, maxHeight: 472, quality: 100) {
                             ...GatsbyContentfulFluid_withWebp_noBase64
                         }
                     }

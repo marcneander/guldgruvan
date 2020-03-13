@@ -1,0 +1,11 @@
+@import "variables";
+
+.main {
+    width: 100%;
+    flex-grow: 1;
+    margin-bottom: 30px;
+
+    @media (min-width: $breakpoint) {
+        margin-bottom: 0px;
+    }
+}

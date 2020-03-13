@@ -1,0 +1,26 @@
+@import "variables";
+
+.offcanvas {
+    display: block;
+    position: fixed;
+    background-color: $green;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    z-index: -1;
+    transition: all 200ms ease-out;
+    padding-top: 100px;
+    padding-left: $gutter;
+    padding-right: $gutter;
+
+    @media (min-width: $breakpoint) {
+        display: none !important;
+    }
+}
+
+.offcanvas-active {
+    opacity: 1;
+    z-index: 100;
+}

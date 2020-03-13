@@ -1,0 +1,39 @@
+@import "variables";
+
+.person {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.image {
+    width: 33%;
+    padding-right: 8px;
+    box-sizing: border-box;
+
+    @media (min-width: $breakpoint) {
+        padding-right: 15px;
+    }
+}
+
+.info-wrap {
+    width: 67%;
+    padding-left: 8px;
+    box-sizing: border-box;
+
+    @media (min-width: $breakpoint) {
+        padding-left: 15px;
+    }
+
+    h4 {
+        margin-bottom: 0px;
+    }
+}
+
+.quote {
+    font-size: 13px;
+
+    @media (min-width: $breakpoint) {
+        font-size: 15px;
+    }
+}

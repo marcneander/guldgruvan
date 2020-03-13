@@ -9,6 +9,8 @@ import Person from '../components/Person';
 import Map from '../components/Map';
 
 const renderEmbeddedAsset = node => {
+    console.log(node);
+
     return <ContentfulFluidAsset id={node.data.target.sys.id} title={node.data.target.fields.title.sv} />;
 };
 
@@ -21,9 +23,6 @@ const renderEntryHyperlink = node => {
     switch (contentType) {
         case 'page':
             to = fields.url.sv.fields.url.sv;
-            break;
-        case 'post':
-            to = `/blogg/${fields.slug.sv}`;
             break;
         default:
             to = '/404';

@@ -19,25 +19,17 @@ const Page = React.memo(props => {
     const page = props.data.contentfulPage;
 
     return (
-        <React.Fragment>
-            <Helmet>
-                <title>{page.title}</title>
-            </Helmet>
-            <Container>
-                <Main>
-                    <h1>{page.title}</h1>
-                    {richTextRenderer(page.body.json)}
-                </Main>
-                <Sidebar
-                    data={{
-                        title: page.menuitem[0].contentfulparent
-                            ? page.menuitem[0].contentfulparent.page.title
-                            : page.title,
-                        menuData: page.menuitem ? page.menuitem[0] : []
-                    }}
-                />
-            </Container>
-        </React.Fragment>
+        <Container>
+            <Main>{richTextRenderer(page.body.json)}</Main>
+            <Sidebar
+                data={{
+                    title: page.menuitem[0].contentfulparent
+                        ? page.menuitem[0].contentfulparent.page.title
+                        : page.title,
+                    menuData: page.menuitem ? page.menuitem[0] : []
+                }}
+            />
+        </Container>
     );
 });
 

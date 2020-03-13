@@ -3,9 +3,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { GoogleApiWrapper, Map, Marker } from 'google-maps-react';
 
+import styles from './Map.module.scss';
+
 const MapContainer = ({ google, name, lng, lat }) => {
     return (
-        <div className="map-placeholder">
+        <div className={styles.map}>
             <Map
                 style={{ width: '100%', height: '100%', position: 'static !important' }}
                 google={google}

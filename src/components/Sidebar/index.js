@@ -1,7 +1,10 @@
 import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
-import { Col } from 'react-bootstrap';
+import classnames from 'classnames';
 import { Link } from 'gatsby';
+import Button from '../Button';
+
+import styles from './Sidebar.module.scss';
 
 const Sidebar = ({ data }) => {
     const menuItems = useMemo(() => {
@@ -16,53 +19,39 @@ const Sidebar = ({ data }) => {
         return [];
     }, [data.menuData.contentfulparent, data.menuData.menuitem]);
 
+    const menuClassname = classnames(styles.sidebarWidget, styles.subMenu);
+
     return (
-        <Col md={4}>
-            <div className="sidebar text-light">
-                {menuItems.length > 0 && (
-                    <div className="sidebar-box submenu p-3">
-                        <h5>Meny</h5>
-                        <ul className="list-unstyled mb-0">
-                            {menuItems.map(menuItem => (
-                                <li key={menuItem.id}>
-                                    <Link to={menuItem.url.url} activeClassName="active" className="sidebar-menu-item">
-                                        - {menuItem.title}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
-                {data.blogPosts.length > 0 && (
-                    <div className="sidebar-box latest-posts p-3">
-                        <h5>Senaste blogginläggen</h5>
-                        <ul className="list-unstyled mb-0">
-                            {data.blogPosts.map(post => (
-                                <li key={post.node.id}>
-                                    <Link
-                                        to={`/blogg/${post.node.slug}`}
-                                        activeClassName="active"
-                                        className="sidebar-menu-item"
-                                    >
-                                        - {post.node.title}
-                                    </Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                )}
-                <div className="sidebar-box submenu p-3">
-                    <h5>Välkommen att ansöka</h5>
-                    <p>
-                        Ska din guldklimp börja på förskola nästa termin? Eller känns det inte riktigt bra med den
-                        förskola ni har idag?
-                    </p>
-                    <Link to="/kontakt" className="btn btn-block btn-light">
-                        Kontakta oss
-                    </Link>
+        <div className={styles.sidebar}>
+            {menuItems.length > 0 && (
+                <div className={menuClassname}>
+                    <h5>{data.title}</h5>
+                    <ul>
+                        {menuItems.map(menuItem => (
+                            <li key={menuItem.id}>
+                                <Link
+                                    to={menuItem.url.url}
+                                    activeClassName={styles.subMenuItemActive}
+                                    className={styles.subMenuItem}
+                                >
+                                    {menuItem.title}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
                 </div>
+            )}
+            <div className={styles.sidebarWidget}>
+                <h5>Välkommen på besök!</h5>
+                <p>
+                    Ska din guldklimp börja på förskola nästa termin? Eller känns det inte riktigt bra med den förskola
+                    ni har idag?
+                </p>
+                <Button as={Link} to="/kontakt">
+                    Kontakta oss
+                </Button>
             </div>
-        </Col>
+        </div>
     );
 };
 
@@ -78,15 +67,7 @@ const menuitemPropTypes = PropTypes.arrayOf(
 
 Sidebar.propTypes = {
     data: PropTypes.shape({
-        blogPosts: PropTypes.arrayOf(
-            PropTypes.shape({
-                node: PropTypes.shape({
-                    id: PropTypes.string.isRequired,
-                    slug: PropTypes.string.isRequired,
-                    title: PropTypes.string.isRequired
-                }).isRequired
-            })
-        ),
+        title: PropTypes.string.isRequired,
         menuData: PropTypes.shape({
             menuitem: menuitemPropTypes,
             contentfulparent: PropTypes.shape({

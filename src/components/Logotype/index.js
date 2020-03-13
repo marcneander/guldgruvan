@@ -1,13 +1,15 @@
 import React from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
+import { Link, graphql, useStaticQuery } from 'gatsby';
+
+import styles from './Logotype.module.scss';
+import { useOffcanvas } from '../OffcanvasProvider';
 
 const Logotype = () => {
     const data = useStaticQuery(graphql`
         query {
             file(relativePath: { eq: "logotype.png" }) {
                 childImageSharp {
-                    fixed(height: 80, quality: 100) {
+                    fixed(height: 50, quality: 100) {
                         ...GatsbyImageSharpFixed
                     }
                 }
@@ -15,7 +17,13 @@ const Logotype = () => {
         }
     `);
 
-    return <Img fixed={data.file.childImageSharp.fixed} fadeIn={false} className="d-block my-1" />;
+    const { hideOffcanvas } = useOffcanvas();
+
+    return (
+        <Link to="/" className={styles.logotype} onClick={hideOffcanvas}>
+            <img src={data.file.childImageSharp.fixed.src} alt="Guldgruvan logotyp" />
+        </Link>
+    );
 };
 
 export default Logotype;

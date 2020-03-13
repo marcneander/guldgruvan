@@ -1,0 +1,21 @@
+@import "variables";
+
+.header {
+    width: 100%;
+    background-color: $green;
+    margin-bottom: $gutter-lg;
+}
+
+.wrap {
+    margin: $gutter / 2 auto;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: $gutter;
+    padding-right: $gutter;
+    width: 100%;
+
+    max-width: 920px;
+}
