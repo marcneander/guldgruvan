@@ -835,17 +835,10 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.1.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2":
-  version "7.7.2"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.7.2.tgz#111a78002a5c25fc8e3361bedc9529c696b85a6a"
-  integrity sha512-JONRbXbTXc9WQE2mAZd1p0Z3DZ/6vaQIkgYMSTP3KjRCyd7rCZCcfhCyX+YjwcKxcZ82UrxbRD358bpExNgrjw==
-  dependencies:
-    regenerator-runtime "^0.13.2"
-
-"@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4":
-  version "7.8.7"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.8.7.tgz#8fefce9802db54881ba59f90bb28719b4996324d"
-  integrity sha512-+AATMUFppJDw6aiR5NVPHqIQBlV/Pj8wY/EZH+lmvRdUo9xBaz/rF3alAwFJQavvKfeOlPE7oaaDHVbcySbCsg==
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.6":
+  version "7.9.6"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.9.6.tgz#a9102eb5cadedf3f31d08a9ecf294af7827ea29f"
+  integrity sha512-64AF1xY3OAkFHqOb9s4jpgk1Mm5vDZ4L3acHvAml+53nO1XbXLuDodsVpO4OIUsmemlUHMxNdYMNJmsvOwLrvQ==
   dependencies:
     regenerator-runtime "^0.13.4"
 
@@ -5846,12 +5839,12 @@ gatsby-plugin-react-helmet@3.1.23:
   dependencies:
     "@babel/runtime" "^7.7.6"
 
-gatsby-plugin-sass@^2.1.30:
-  version "2.1.30"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-2.1.30.tgz#ed322c90746e2d43bb8ccf000abeee5d4473d4bc"
-  integrity sha512-ruK35EVEhZNZGx16s5fu3v1NsJQl31F6jVwbJbA3fSW8iPOY+vOuY3pytsKe++7sRrqd+dolCo5NFnKsGNoNDg==
+gatsby-plugin-sass@^2.3.1:
+  version "2.3.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-2.3.1.tgz#71a8003e41dbd663f6ab1dbb5401afb1b20a2984"
+  integrity sha512-Duk8wAn5AmFmXYrlsoXBWKp3HcuZcREq7wP4yR62Eci9PcJbrxOAfpJv8lcXJEImqdH+85WSOX2hC2GREOedaw==
   dependencies:
-    "@babel/runtime" "^7.7.6"
+    "@babel/runtime" "^7.9.6"
     sass-loader "^7.3.1"
 
 gatsby-plugin-sharp@2.4.12, gatsby-plugin-sharp@^2.4.12:
