@@ -31,7 +31,7 @@ const renderEntryHyperlink = node => {
 };
 
 const renderEmbeddedEntry = node => {
-    switch (node.data.target.sys.contentType.sys.id) {
+    switch (node.data.target.sys.contentType?.sys?.id) {
         case 'person':
             return <Person data={node.data.target.fields} />;
 
