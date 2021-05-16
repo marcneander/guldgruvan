@@ -42,10 +42,9 @@ const Sidebar = ({ data }) => {
                 </div>
             )}
             <div className={styles.sidebarWidget}>
-                <h5>Välkommen på besök!</h5>
+                <h5>Välkomna på besök</h5>
                 <p>
-                    Ska din guldklimp börja på förskola nästa termin? Eller känns det inte riktigt bra med den förskola
-                    ni har idag?
+                    Vid frågor och funderingar välkomna att kontakta oss på Guldgruvan.
                 </p>
                 <Button as={Link} to="/kontakt">
                     Kontakta oss
